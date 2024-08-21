@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>آیفون استور - قرعه کشی</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/homePage.css">
+        <link rel="stylesheet" href="/css/fonts.css">
+    </head>
+    <body>
+        <%- include("./templates/flash.ejs", {flash}) %>
+
+        <header style="display: flex; align-items: center; justify-content: space-between;padding: 10px; box-shadow: 0 0 10px 1px #aaa;">
+            <img src="/media/iphonestore.png" alt="Ali NasrAbadi">
+            <div style="display: flex; align-items: center; ">
+                <p style="margin-left: 30px; background-color: #ebcb1c; color: white; padding: 5px 10px;border-radius: 20px;"><%= users.length %> نفر</p>
+                <h1 style="color: #ebcb1c">قـــــرعـــــه‌کـــــشـــــی</h1>
+                <!-- <a href="/search" style="margin-right: 30px;" aria-disabled="true">افزودن</a> -->
+                 <input type="text" id="inp" placeholder="کد" style="width: 50px; text-align: center; margin-right: 30px;">
+            </div>
+            <img src="/media/baharhoseini.png" alt="Bahar Hosseini">
+        </header>
+
+        <div style="width: 100%; display: flex; flex-direction: column;">
+
+        <% users.forEach(user => { %>
+
+            <div class="container" id="s-<%=user.id%>" style="box-shadow: 0 0 10px 1px #ccc; background-color: white;margin: 20px; border-radius: 10px; padding: 10px; display: flex; align-items: center; justify-content: space-around;">
+                <p style="width: 200px;text-align: center; color: #ebcb1c; border: 1px solid #ebcb1c; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;"><%= user.id %></p>
+                <p style="width: 200px;text-align: center;" dir="ltr"><%= user.name %></p>
+                <p style="width: 200px;text-align: center;" dir="ltr"><%= user.codeMelli %></p>
+                <p style="width: 200px;text-align: center;"dir="ltr"><%= user.number %></p>
+                <a href="/delete?id=<%=user.id%>" style="background-color: rgba(255, 0, 0, 0.605);">حذف</a>
+            </div>
+
+        <% }) %>
+
+        </div>
+
+
+        <script>
+            var inp = document.getElementById("inp")
+            var s = document.querySelectorAll(".container")
+
+            inp.addEventListener("click", (e) => {
+                console.log(e.value)
+                s.forEach((d) => {
+                    // if(d.id != e.value)
+                })
+            })
+        </script>
+    </body>
+</html>

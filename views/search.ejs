@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>آیفون استور - قرعه کشی</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/homePage.css">
+        <link rel="stylesheet" href="/css/fonts.css">
+    </head>
+    <body>
+        <%- include("./templates/flash.ejs", {flash}) %>
+
+        <header style="display: flex; align-items: center; justify-content: space-between;padding: 10px; box-shadow: 0 0 10px 1px #aaa;">
+            <img src="/media/iphonestore.png" alt="Ali NasrAbadi">
+            <div style="display: flex; align-items: center; ">
+                <p style="margin-left: 30px; background-color: #ebcb1c; color: white; padding: 5px 10px;border-radius: 20px;"><%= users.length %> نفر</p>
+                <h1 style="color: #ebcb1c">قـــــرعـــــه‌کـــــشـــــی</h1>
+                <a href="/" style="margin-right: 30px;">خانه</a>
+            </div>
+            <img src="/media/baharhoseini.png" alt="Bahar Hosseini">
+        </header>
+
+        <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
+            <% if(user){ %>
+
+            <% }else{ %>
+                <form method="post" action="/search" style="background-color: white; border-radius: 15px; width: 400px; height: 400px;display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
+                    <h1 style="text-align: center; margin-top: 30px;">جستجو برنده</h1>
+                    <input placeholder="کد" style="text-align: center;width: 200px; font-size: 20px;margin-bottom: 20px;" type="text" name="" id="">
+                    <button type="submit">ثبت</button>
+                </form>
+            <% } %>
+        </div>
+
+    </body>
+</html>

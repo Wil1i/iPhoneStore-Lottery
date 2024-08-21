@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html dir="rtl">
+    <head>
+        <title>آیفون استور - قرعه کشی</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/homePage.css">
+        <link rel="stylesheet" href="/css/fonts.css">
+    </head>
+    <body>
+        <%- include("./templates/flash.ejs", {flash}) %>
+
+        <header style="display: flex; align-items: center; justify-content: space-between;padding: 10px; box-shadow: 0 0 10px 1px #aaa;">
+            <img src="/media/iphonestore.png" alt="Ali NasrAbadi">
+            <div style="display: flex; align-items: center; ">
+                <p style="margin-left: 30px; background-color: #ebcb1c; color: white; padding: 5px 10px;border-radius: 20px;"><%= users.length %> نفر</p>
+                <h1 style="color: #ebcb1c">قـــــرعـــــه‌کـــــشـــــی</h1>
+                <a href="/" style="margin-right: 30px;">شروع</a>
+            </div>
+            <img src="/media/baharhoseini.png" alt="Bahar Hosseini">
+        </header>
+
+        <div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+            <form autocomplete="off" method="post" action="/new" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;  background-color: white; border-radius: 15px; padding: 15px; height: 300px;width: 400px;">
+                <div>
+                    <h2>اطلاعات را وارد کنید</h2>
+                </div>
+                <div>
+                    <input dir="ltr" autofocus required type="text" style="text-align: center;" name="name" placeholder="نام">
+                    <input dir="ltr" required style="margin-left: 10px;text-align: center;" type="text" name="codeMelli" placeholder="کد ملی">
+                    <input dir="ltr" required style=" margin-top: 10px;margin-left: 10px;text-align: center;" type="text" name="number" placeholder="شماره تماس">
+                </div>
+
+                <button type="submit" style="cursor: pointer;">ثبت</button>
+            </form>
+        </div>
+    </body>
+</html>

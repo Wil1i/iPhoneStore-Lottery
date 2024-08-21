@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'vazir';
+}
+
+html{
+    background-color: #ccc;
+}
+
+header{
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background-color: #ebcb1c;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input{
+    border: 2px solid #ebcb1c;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px 10px;
+}
+
+button{
+    background-color: #ebcb1c;
+    border: 1px solid #ebcb1c;
+    color: white;
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+}
+
+.flash {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ebcb1c;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+  }
