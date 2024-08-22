@@ -11,9 +11,6 @@ Router.post("/new", newController.post)
 const deleteController = require("../controllers/deleteController")
 Router.get("/delete", deleteController.get)
 
-const exportController = require("../controllers/exportController")
-Router.get("/export", exportController.get)
-
 const searchController = require("../controllers/searchController")
 Router.get("/search", searchController.get)
 Router.post("/search", searchController.post)

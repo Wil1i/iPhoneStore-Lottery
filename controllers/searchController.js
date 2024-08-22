@@ -11,7 +11,7 @@ const post = async (req, res) => {
     let user = await User.findByPk(req.body.code)
     const users = await User.findAll()
     if(!user) {
-        req.flash("danger", "این کد داده نشده!")
+        req.flash("danger", "این کد ثبت نشده!")
         user = null
     }
 
