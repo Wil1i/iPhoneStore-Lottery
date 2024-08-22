@@ -1,4 +1,5 @@
 const User = require("../models/User")
+const convert = require("../utils/convert")
 
 const get = async (req,res) => {
     const users = await User.findAll()
@@ -8,6 +9,7 @@ const get = async (req,res) => {
 
     res.render("new", {
         users,
+        convert,
         id,
         flash : req.flash()
     })
