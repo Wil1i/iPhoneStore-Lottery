@@ -1,18 +1,18 @@
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: 'vazir';
 }
 
-html{
+html {
     background-color: #ccc;
 }
 
-header{
+header {
     background-color: white;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
     background-color: #ebcb1c;
@@ -21,14 +21,14 @@ a{
     cursor: pointer;
 }
 
-input{
+input {
     border: 2px solid #ebcb1c;
     border-radius: 10px;
     outline: none;
     padding: 5px 10px;
 }
 
-button{
+button {
     background-color: #ebcb1c;
     border: 1px solid #ebcb1c;
     color: white;
@@ -45,4 +45,8 @@ button{
     padding: 10px;
     border-radius: 10px;
     color: white;
-  }
+}
+
+.blur {
+    transition: all .4s ease-in-out;
+}

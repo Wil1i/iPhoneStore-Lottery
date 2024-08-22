@@ -16,5 +16,6 @@ Router.get("/export", exportController.get)
 
 const searchController = require("../controllers/searchController")
 Router.get("/search", searchController.get)
+Router.post("/search", searchController.post)
 
 module.exports = Router

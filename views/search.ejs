@@ -1,35 +1,109 @@
 <!DOCTYPE html>
 <html dir="rtl">
-    <head>
-        <title>آیفون استور - قرعه کشی</title>
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/homePage.css">
-        <link rel="stylesheet" href="/css/fonts.css">
-    </head>
-    <body>
-        <%- include("./templates/flash.ejs", {flash}) %>
 
-        <header style="display: flex; align-items: center; justify-content: space-between;padding: 10px; box-shadow: 0 0 10px 1px #aaa;">
+<head>
+    <title>آیفون استور - قرعه کشی</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/homePage.css">
+</head>
+
+<body>
+    <%- include("./templates/flash.ejs", {flash}) %>
+
+        <header
+            style="display: flex; align-items: center; justify-content: space-between;padding: 10px; box-shadow: 0 0 10px 1px #aaa;">
             <img src="/media/iphonestore.png" alt="Ali NasrAbadi">
             <div style="display: flex; align-items: center; ">
-                <p style="margin-left: 30px; background-color: #ebcb1c; color: white; padding: 5px 10px;border-radius: 20px;"><%= users.length %> نفر</p>
+                <p
+                    style="margin-left: 30px; background-color: #ebcb1c; color: white; padding: 5px 10px;border-radius: 20px;">
+                    <%= users.length %> نفر
+                </p>
                 <h1 style="color: #ebcb1c">قـــــرعـــــه‌کـــــشـــــی</h1>
                 <a href="/" style="margin-right: 30px;">خانه</a>
             </div>
             <img src="/media/baharhoseini.png" alt="Bahar Hosseini">
         </header>
 
-        <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
-            <% if(user){ %>
+        <div
+            style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
 
-            <% }else{ %>
-                <form method="post" action="/search" style="background-color: white; border-radius: 15px; width: 400px; height: 400px;display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
-                    <h1 style="text-align: center; margin-top: 30px;">جستجو برنده</h1>
-                    <input placeholder="کد" style="text-align: center;width: 200px; font-size: 20px;margin-bottom: 20px;" type="text" name="" id="">
-                    <button type="submit">ثبت</button>
+            <% if(user==null){ %>
+
+                <form action="/search" method="post"
+                    style="width: 60%; height: 70%; background-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;border-radius: 10px;">
+                    <h1 style="font-size: 40px;">جستجو</h1>
+                    <input name="code" type="text" placeholder="کد" style="text-align: center;font-size: 30px;">
+                    <button type="submit" style="cursor: pointer;">ثبت</button>
                 </form>
-            <% } %>
+
+                <% }else{ %>
+
+                    <div
+                        style="width: 60%; height: 70%; background-color: white; display: flex; flex-direction: column;justify-content: space-around; align-items: center; border-radius: 10px;">
+
+                        <div
+                            style="display: flex;flex-direction: column; align-items: center; justify-content: center;">
+                            <h1>
+                                <%= user.name %>
+                            </h1>
+                            <p
+                                style="margin-top: 10px;background-color: rgba(0, 0, 0, .1); padding: 5px 10px; border-radius: 10px;">
+                                کد : <%= convert.toPersian(user.id) %>
+                            </p>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-around;width: 100%;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center;flex-direction: column;">
+                                <h3>نمایش دادن کد ملی</h3>
+                                <p class="blur" id="blur2" style="filter: blur(4px);margin: 20px 0;">
+                                    <%=convert.toPersian(user.codeMelli)%>
+                                </p>
+                                <button id="submitCodeMelli">نمایش</button>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; flex-direction: column;">
+                                <h3>نمایش دادن شماره تماس</h3>
+                                <p class="blur" id="blur" style="filter: blur(4px);">
+                                    <%= convert.toPersian(user.number) %>
+                                </p>
+                                <button id="show">نمایش</button>
+                            </div>
+                        </div>
+                        <a href="/search"
+                            style="font-size: 13px;font-weight: normal; padding: 5px 10px; width: 70px; text-align: center;">جستجو</a>
+                    </div>
+                    <% } %>
         </div>
 
-    </body>
+
+        <script>
+            var showNumberButton = document.getElementById("show")
+            var numberText = document.getElementById("blur")
+            var showCodeMelliButton = document.getElementById("submitCodeMelli")
+            var codeMelliText = document.getElementById("blur2")
+
+            showCodeMelliButton.addEventListener("click", () => {
+                if (codeMelliText.style.filter == "blur(4px)") {
+                    codeMelliText.style.filter = "none"
+                    showCodeMelliButton.innerHTML = "مخفی"
+                } else {
+                    showCodeMelliButton.innerHTML = "نمایش"
+                    codeMelliText.style.filter = "blur(4px)"
+                }
+            })
+
+            showNumberButton.addEventListener("click", () => {
+                if (numberText.style.filter == "blur(4px)") {
+                    numberText.style.filter = "none"
+                    showNumberButton.innerHTML = "مخفی"
+                } else {
+                    showNumberButton.innerHTML = "نمایش"
+                    numberText.style.filter = "blur(4px)"
+                }
+            })
+        </script>
+</body>
+
 </html>
